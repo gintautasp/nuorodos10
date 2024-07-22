@@ -1,0 +1,35 @@
+
+	1. patalpinkite išsskleistus projekto failus serverio kataloge. Rekomenduojame talpinti ne tiesiogiai per web pasiekiamame kataloge. Pavyzdžiui, jei serveris yra internete ir tiesiogiai pasiekiami failai yra public_html (xampp serverio atveju htdocs) tai rekomenduojame sukurti aukščiau esančiame kataloge katalogą projects. Šiame kataloge turėtu atsirasti katalogai nuorodos10 ir bendram. Jei projektą klonuosite su git tai šių katalogų kurti nereikia. Pavyzdžiui išsskleidus failus su 7zip archyvartoriumi projekto failų katalogas vadinasi nuorodos10-main, tuomet jį tektu pervardinti į nuorodos10
+	Tuomet katalogų struktūra turėtu buti tokia:
+	
+	interneto serveryje 
+	
+		|
+		+- public_html
+		+- projects
+			|
+			+ nuorodos10
+				.. čia talpinami šio projekto failai
+			+ bendram
+				.. čia talpinami bendram projekto failai			
+			
+			
+	xampp serveryje
+	
+		|
+		+- htdocs
+		+- projects
+			|
+			+ nuorodos10
+				.. čia talpinami šio projekto failai			
+			+ bendram
+				.. čia talpinami bendram projekto failai				
+
+	2. atsiųskite arba klonuokite projekta esanti github repozitorojoje https://github.com/gintautasp/bendram į bendram katalogą
+	
+	3. htdocs (xampp atveju) arba public_html (interneto serverio atveju)  sukurkite katalogą kokiu adresu ir kreipsitės į puslapį. pvz. jei suskursit htdocs/nuorodos10, tai nuorodų sistemos url bus localhost/nuorodos10, jei
+	public_html/nuorodos tai url bus: jusu.serverio.adressas/nuorodos
+	
+	4. į šį katalogą nukopijuokite index.php failą iš katalogo projects/htdocs_nuorodos10
+	
+	
