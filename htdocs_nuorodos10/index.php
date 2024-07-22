@@ -1,3 +1,3 @@
 <?php
 
-	include '../../projects/nuoruodos10/main.php';
+	include '../../projects/nuorodos10/main.php';
