@@ -23,13 +23,26 @@
 			+ nuorodos10
 				.. čia talpinami šio projekto failai			
 			+ bendram
-				.. čia talpinami bendram projekto failai				
+				.. čia talpinami bendram projekto failai	
 
 	2. atsiųskite arba klonuokite projekta esanti github repozitorojoje https://github.com/gintautasp/bendram į bendram katalogą
 	
 	3. htdocs (xampp atveju) arba public_html (interneto serverio atveju)  sukurkite katalogą kokiu adresu ir kreipsitės į puslapį. pvz. jei suskursit htdocs/nuorodos10, tai nuorodų sistemos url bus localhost/nuorodos10, jei
 	public_html/nuorodos tai url bus: jusu.serverio.adressas/nuorodos
 	
-	4. į šį katalogą nukopijuokite index.php failą iš katalogo projects/htdocs_nuorodos10
+	4. į šį katalogą nukopijuokite failus iš katalogo projects/htdocs_nuorodos10
+	
+		jei katalogų struktūra būtu kitokia tai reiktu readguoti šiame kataloge esantį index.php failą
+		
+	5. sukurkite duomenų bazę nuorodos10 serveryje ir į ją importuokite nuorodos10-20240724.sql duomenų bazės kopiją. 
+		Jei duomenų vardas kitoks ir daomenų bazės vartotojas ne root ir vartotojo slaptažodis ne tuščias (interneto serverio atveju), tai pakoreguoti 17-oje eilutėje parašytą veiksmą:
+		
+			$db = new DuomenuBaze ( 'nuorodos10' );	
+
+		į tokį
+		
+			$db = new DuomenuBaze ( 'duomenų_bazės_vardas', 'duoemnų_bazės_vartotojo_vardas', 'duomenų_bazės_vartotojo_slaptažodis' );	
+
+		
 	
 	

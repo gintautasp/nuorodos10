@@ -23,7 +23,7 @@
 			border-bottom: 3px solid black;
 			padding-top: 30px; 
 		}
-		#pagrindinis{
+		#paieskos_eilute {
 			display: inline-block;
 			width: 500px;
 			margin-left: 200px;
@@ -62,6 +62,7 @@
 			color: red;
 		}
 		#uzdaryti, #saugoti {
+			background-color: DarkKhaki;			
 			float: right;
 		}
 		#saugoti {
@@ -177,9 +178,11 @@
 ?>
 	</aside>
 	<div id="paieska">
-		<input type="text" name="pagrindinis" id="pagrindinis">
-		<input type="button" value="&#128269;" id="ieskoti" class="veiksmai">
-		<input type="button" value="&#9997;" id="prideti" class="veiksmai">
+		<form method="POST" action="">
+			<input type="text" name="paieskos_eilute" id="paieskos_eilute">
+			<input type="submit" value="&#128269;" id="ieskoti" name="ieskoti" class="veiksmai">
+			<input type="button" value="&#9997;" id="prideti" class="veiksmai">
+		</form>
 	</div>
 	<main>
 <?php

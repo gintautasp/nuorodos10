@@ -4,12 +4,13 @@
 	
 		public 
 			$pasirinkta_zyma
-			, $paieskos_eilute
+			, $paieskos_fraze
 			, $paieskos_kriterijai = '1';
 	
-		function __construct( $pasirinkta_zyma = '', $paieskos_eilute = '' ) {
+		function __construct( $pasirinkta_zyma = '', $paieskos_fraze = '' ) {
 		
 			$this -> pasirinkta_zyma = $pasirinkta_zyma;
+			$this -> paieskos_fraze = trim ( $paieskos_fraze );			
 			parent::__construct();
 		}
 		
@@ -21,6 +22,19 @@
 						"
 					AND `nuorodos`.`zymos` LIKE( '%" . $this -> pasirinkta_zyma . "%')
 						";
+			}
+			if ( $this -> paieskos_fraze != '' ) {
+			
+				$this -> paieskos_kriterijai .=
+						"
+					AND ( 
+							`nuorodos`.`zymos` LIKE( '%" . $this -> paieskos_fraze . "%')
+						OR
+							`nuorodos`.`pav` LIKE( '%" . $this -> paieskos_fraze . "%')
+						OR
+							`nuorodos`.`url` LIKE( '%" . $this -> paieskos_fraze . "%')							
+					)
+						";			
 			}
 		}
 	

@@ -7,8 +7,10 @@
 			$ar_atsiusta_nauja_nuoroda =false
 			, $ar_atsiusti_pakeisti_nuorodos_duomenys = false
 			, $ar_pasalinti_nuoroda = false
+			, $ar_atlikti_paieska = false
 			
 			, $pasirinkta_zyma = ''
+			, $paieskos_fraze = ''
 			
 			, $zymos
 			, $nuorodos
@@ -37,8 +39,13 @@
 				}
 			}
 			
-			$this -> ar_pasalinti_nuoroda = isset ( $_POST [ 'salinti' ] ) && ( $_POST [ 'salinti' ] == 'salinti' )   && ( intval ( $_POST [ 'id_salinamos_nuorodos' ] ) > 0 );			
+			$this -> ar_pasalinti_nuoroda = isset ( $_POST [ 'salinti' ] ) && ( $_POST [ 'salinti' ] == 'salinti' )   && ( intval ( $_POST [ 'id_salinamos_nuorodos' ] ) > 0 );
+		
+			if ( $this -> ar_atlikti_paieska = isset ( $_POST [ 'ieskoti' ] ) ) {
 			
+				$this -> paieskos_fraze = $_POST [ 'paieskos_eilute' ];
+			}
+		
 			if ( isset ( $_GET [ 'zyma' ] ) && ( trim ( $_GET [ 'zyma' ] ) != '' ) ) {
 			
 				$this -> pasirinkta_zyma = trim ( $_GET [ 'zyma' ] );
@@ -94,7 +101,7 @@
 		public function gautiDuomenis() {
 		
 			// echo $this -> pasirinkta_zyma . '***';
-			$this -> nuorodos = new Nuorodos( $this -> pasirinkta_zyma );		
+			$this -> nuorodos = new Nuorodos( $this -> pasirinkta_zyma, $this -> paieskos_fraze );		
 		
 			$this -> nuorodos -> gautiSarasaIsDuomenuBazes();
 			$this -> zymos -> gautiSarasaIsDuomenuBazes();

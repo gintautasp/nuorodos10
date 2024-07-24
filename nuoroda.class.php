@@ -8,10 +8,10 @@
 		
 			parent::__construct();
 			
-			$this -> id =$id;
-			$this -> pav = $pav;
-			$this -> url = $url;
-			$this -> zymos = $zymos;
+			$this -> id =$this -> db -> ercl_db -> real_escape_string ( $id );
+			$this -> pav = $this -> db -> ercl_db -> real_escape_string ( $pav );
+			$this -> url = $this -> db -> ercl_db -> real_escape_string ( $url );
+			$this -> zymos = $this -> db -> ercl_db -> real_escape_string ( $zymos );
 			// print_r ( $this );
 		}
 		
@@ -38,7 +38,7 @@
 				INSERT INTO `nuorodos` ( `pav`, `url`, `zymos`)
 				VALUES ( '" . $this -> pav  . "',  '" . $this -> url  . "',  '" . $this -> zymos  . "' )
 					";				
-			// echo $qw_saugoti; exit;
+																																	// echo $qw_saugoti; exit;
 			$this -> db -> uzklausa ( $qw_saugoti );
 		}	
 		
