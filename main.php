@@ -12,7 +12,19 @@
 	*/
 	define ( 'DIR_BENDRAM', realpath ( __DIR__ . '/../bendram/' ) . '/' );
 	
+	include DIR_BENDRAM . 'duomenu_baze.class.php';
+
+	$db = new DuomenuBaze ( 'nuorodos10' );	
+	
 	include DIR_BENDRAM . 'controller.class.php';
+
+	include DIR_BENDRAM . 'model_db.class.php';
+	include DIR_BENDRAM . 'model_db_irasas.class.php';	
+	include DIR_BENDRAM . 'model_db_sarasas.class.php';
+	
+	include 'zymos.class.php';
+	include 'nuoroda.class.php';
+	include 'nuorodos.class.php';	
 	include 'nuorodu_sistema.class.php';
 	
 	$app = new NuoroduSistema();
@@ -21,12 +33,17 @@
 	
 	if ( $app -> arAtsiustaNaujaNuoroda() ) {
 	
-		$app -> issaugotiNuoroda();
+		$app -> issaugotiNaujaNuoroda();
 	}
 	
 	if ( $app -> arAtsiustiPakeistiNuorodosDuomenys() ) {
 	
-		$app -> issaugotiNuoroda();
+		$app -> issaugotiPakeistaNuoroda();
+	}	
+	
+	if ( $app -> arSalintiNuoroda() ) {										// zymu_saugykla ar nurodyta šalinti žymą
+		
+		$app -> salintiNuoroda();											// zymu_saugykla  pašalink nurodyta žyma
 	}	
 	
 	$app -> gautiDuomenis();
