@@ -29,7 +29,7 @@
 			margin-left: 200px;
 		}
 		#prideti {
-			background-color: blue;
+			background-color: DarkGoldenRod;
 		}
 		.veiksmai {
 			width: 25px;
@@ -50,11 +50,13 @@
 			margin-top: 7px;
 		}
 		.redaguoti {
+			background-color: DarkKhaki;
 			margin-right: 0;
 		}
 		.salinti {
 			margin-left: 7px;
 			margin-right: 7px;
+			background-color: DarkSalmon;
 		}		
 		.privaloma {
 			color: red;
@@ -111,7 +113,12 @@
 				$( '#pav' ).val ( duomenys.pav );
 				$( '#nuoroda' ).val ( duomenys.url );
 				$( '#zymos' ).val ( duomenys.zymos );	
-			}	
+			}
+
+			$( '#uzdaryti' ).click ( function() {
+			
+				uzdarytiNuorodosDialoga();
+			});
 
 			$( '#prideti' ).click( function() {
 				
@@ -170,8 +177,9 @@
 ?>
 	</aside>
 	<div id="paieska">
-		<input type="text" name="pagrindinis" id="pagrindinis"><input type="button" value="+" id="prideti" class="veiksmai">
+		<input type="text" name="pagrindinis" id="pagrindinis">
 		<input type="button" value="&#128269;" id="ieskoti" class="veiksmai">
+		<input type="button" value="&#9997;" id="prideti" class="veiksmai">
 	</div>
 	<main>
 <?php
@@ -195,7 +203,7 @@
 	</main>
 	<dialog id="nuorodos_redagavimas">
 		<form method="POST" action="">
-			<input type="button" value="X" id="uzdaryti" class="veiksmai" onClick="uzdarytiNuorodosDialoga()">
+			<input type="button" value="&cross;" id="uzdaryti" class="veiksmai"><br>
 			<label>Nuoroda <span class="privaloma">*</span></label>
 			<input type="text" name="nuoroda" id="nuoroda" required>
 			<label>Pavadinimas</label>
